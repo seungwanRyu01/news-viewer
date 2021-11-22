@@ -1,7 +1,6 @@
 import React from 'react';
 // NavLink import
 import { NavLink } from 'react-router-dom';
-
 import styled, { css } from 'styled-components';
 
 const categories = [
@@ -19,11 +18,16 @@ const CategoriesBlock = styled.div`
   padding: 1rem;
   width: 768px;
   margin: 0 auto;
+  background-color: yellow;
   @media screen and (max-width: 768px) {
     width: 100%;
     overflow-x: auto;
   }
 `;
+
+
+
+
 
 // html 요소가 아닌 컴포넌트에 사용할 때는 컴포넌트를 괄호로 감쌈.
 const Category = styled(NavLink)`

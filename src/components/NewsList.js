@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
 
+
 const NewsListBlock = styled.div`
   box-sizing: border-box;
   padding-bottom: 3rem;
@@ -19,10 +20,12 @@ const NewsListBlock = styled.div`
 
 const NewsList = ( {category} ) => {
   const [articles, setArticles] = useState(null);
-  //   요청이 대기 중일 때는 loading 이 ture, 요청이 끝나면 false .
+  // 요청이 대기 중일 때는 loading 이 ture, 요청이 끝나면 false .
   const [loading, setLoading] = useState(false);
   // 처음 렌더링 된 후에 API 요청할거니까 두번째 인자로 빈 배열 적어주기.
-  // 주의 : useEffect 자체에 async 사용 불가. 왜 ? 컴포넌트가 언마운트 되기 전이나 업데이트 되기 직전에는 어떠한 작업을 수행하고 싶다면, 반환해야하는 값이 뒷정리 함수이기 때문. 따라서 내부에서 async 함수를 따로 만들어 주어야 함.
+  // 주의 : useEffect 자체에 async 사용 불가. 
+  // c왜 ? 컴포넌트가 언마운트 되기 전이나 업데이트 되기 직전에는 어떠한 작업을 수행하고 싶다면, 
+  // 반환해야하는 값이 뒷정리 함수이기 때문. 따라서 내부에서 async 함수를 따로 만들어 주어야 함.
   useEffect(() => {
     const fetchData = async () => {
         // API 요청 완료전 loading true.
@@ -51,7 +54,9 @@ const NewsList = ( {category} ) => {
   if (loading) {
     return <NewsListBlock>로딩중....</NewsListBlock>;
   }
-  // 아직 article 값이 설정되지 않았을 때. 왜 ? null 값을 조회하지 않으면, 아직 데이터가 없을 때 즉, null 일때는 map 함수가 없기 때문에 렌더링 과정에서 오류가 발생해 제대로 렌더링이 이루어지지 않는다. 꼭!! article 값이 비어있는지 없는지 검사를 해주자
+  // 아직 article 값이 설정되지 않았을 때. 왜 ? null 값을 조회하지 않으면, 아직 데이터가 없을 때 
+  // 즉, null 일때는 map 함수가 없기 때문에 렌더링 과정에서 오류가 발생해 제대로 렌더링이 이루어지지 않는다. 
+  // 꼭!! article 값이 비어있는지 없는지 검사를 해주자
   if (!articles) {
     return null;
   }

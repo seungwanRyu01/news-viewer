@@ -1,6 +1,8 @@
 import React from 'react';
 import Categories from '../components/Categories';
 import NewsList from '../components/NewsList';
+import Navbar from '../components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 const NewsPage = ({match}) => {
@@ -9,6 +11,7 @@ const NewsPage = ({match}) => {
     const category = match.params.category || 'all';
     return (
         <div>
+            <Navbar/>
             <Categories/>
             <NewsList category={category}/>
         </div>
